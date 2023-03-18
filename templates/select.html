@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Select Movie{% endblock %}
+
+{% block content %}
+<div class="container">
+  {% if length != 0: %}
+    <h1 class="heading">Select Movie</h1>
+    <ul>
+        {% for movie in movies: %}
+          <li><a href="{{ url_for('details', id=movie['id']) }}">{{ movie['title'] }} - {{ movie['date'] }}</a></li>
+          <br>
+        {% endfor %}
+    </ul>
+  {% else: %}
+    <div class="error container-fluid">
+      <h2>Connection Error</h2>
+      <p>Seems you are not connected to the internet.</p>
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+    <div class="error container-fluid">
+      <h2>Connection Error</h2>
+        <p>Possible cause:</p>
+        <ul>
+            <li>Seems you are not connected to the internet.</li>
+            <li>You might have added that movie already</li>
+            <li>Invalid API key</li>
+        </ul>
+    </div>
+{% endblock %}
