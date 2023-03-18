@@ -25,7 +25,7 @@ HEADERS = {
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///my-favourite-movies.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 Bootstrap(app)
 
 db = SQLAlchemy(app)
