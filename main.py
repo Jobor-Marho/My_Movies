@@ -33,13 +33,13 @@ db = SQLAlchemy(app)
 
 class Movie(db.Model):
     id = db.Column(db.Integer, unique=True, primary_key=True)
-    title = db.Column(db.String(120), unique=True, nullable=False)
+    title = db.Column(db.String(1000), unique=True, nullable=False)
     year = db.Column(db.Integer, unique=False, nullable=False)
-    description = db.Column(db.String(240), unique=False, nullable=False)
+    description = db.Column(db.String(1000), unique=False, nullable=False)
     rating = db.Column(db.Float, unique=False)
     ranking = db.Column(db.Integer, unique=False) # rectify it later
-    review = db.Column(db.String(120), unique=False)
-    img_url = db.Column(db.String(240), unique=False, nullable=False)
+    review = db.Column(db.String(1000), unique=False)
+    img_url = db.Column(db.String(1000), unique=False, nullable=False)
 
     def __repr__(self):
         return '<Movie %r>' % self.title
